@@ -1,4 +1,4 @@
-package com.github.gitvoytenko.javarushtelegrambot;
+package com.github.gitvoytenko.jrtb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
