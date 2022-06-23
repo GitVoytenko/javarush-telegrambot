@@ -1,5 +1,5 @@
 ## Overview
-Repository creates for fast running development process with configuration, which are the same from project to project.
+JavaRush Telegram bot from community for community. Written by developers, who learned in [Javarush](https://javarush.ru).
 
 ## Building
 ...
