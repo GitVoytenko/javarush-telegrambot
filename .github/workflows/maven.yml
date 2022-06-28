@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up MySQL
-      uses: mirromutth/mysql-action@1.1
+      uses: mirromutth/mysql-action@v8.0
       with:
         mysql version: '8.0.15'
         mysql database: 'dev_jrtb_db'
