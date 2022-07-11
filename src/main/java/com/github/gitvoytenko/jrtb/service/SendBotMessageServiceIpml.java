@@ -21,16 +21,16 @@ public class SendBotMessageServiceIpml implements SendBotMessageService{
 
 
     @Override
-    public void sendMessage(String chatId, String message) {
+    public void sendMessage(Long chatId, String message) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(chatId);
+        sendMessage.setChatId(chatId.toString());
         sendMessage.enableHtml(true);
         sendMessage.setText(message);
 
         try{
             javarushBot.execute(sendMessage);
             } catch (TelegramApiException e){
-            // to-do add logging to the project.
+            //todo add logging to the project.
             e.printStackTrace();
         }
     }
