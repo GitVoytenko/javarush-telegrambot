@@ -57,7 +57,7 @@ public class DeleteGroupSubCommandTest {
     public void shouldProperlyReturnSubscriptionLit(){
         //given
         Long chatId = 234567L;
-        Update update = prepareUpdate(chatId, DELETE_GROUP_SUB.getCommandName());
+        Update update = prepareUpdate(chatId, String.format("%s %s", DELETE_GROUP_SUB.getCommandName(), "groupSubId"));
         TelegramUser telegramUser = new TelegramUser();
         GroupSub gs1 = new GroupSub();
         gs1.setId(123);
@@ -83,8 +83,7 @@ public class DeleteGroupSubCommandTest {
     public void shouldRejectByInvalidGroup(){
         //given
         Long chatId = 23456L;
-        Integer groupId = 1234;
-        Update update = prepareUpdate(chatId, String.format("%s %s", DELETE_GROUP_SUB.getCommandName(), groupId));
+        Update update = prepareUpdate(chatId, String.format("%s %s", DELETE_GROUP_SUB.getCommandName(), "groupSubId"));
         TelegramUser telegramUser = new TelegramUser();
         GroupSub gs1 = new GroupSub();
         gs1.setId(123);
@@ -93,7 +92,7 @@ public class DeleteGroupSubCommandTest {
         Mockito.when(telegramUserService.findByChatId(chatId))
                 .thenReturn(Optional.of(telegramUser));
 
-        String expectedMessage = "неправильный формат ID группы. \n" +
+        String expectedMessage = "Неправильный" +
                 "ID должно быть целым положительным числом";
         //when
         command.execute(update);
