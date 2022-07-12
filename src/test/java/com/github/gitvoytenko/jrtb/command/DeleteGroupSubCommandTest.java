@@ -92,7 +92,7 @@ public class DeleteGroupSubCommandTest {
         Mockito.when(telegramUserService.findByChatId(chatId))
                 .thenReturn(Optional.of(telegramUser));
 
-        String expectedMessage = "Неправильный" +
+        String expectedMessage = "Неправильный формат ID группы.\n" +
                 "ID должно быть целым положительным числом";
         //when
         command.execute(update);
