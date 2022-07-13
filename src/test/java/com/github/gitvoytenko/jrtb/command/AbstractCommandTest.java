@@ -35,7 +35,7 @@ abstract class AbstractCommandTest {
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId.toString());
-        sendMessage.setChatId(getCommandMessage());
+        sendMessage.setText(getCommandMessage());
         sendMessage.enableHtml(true);
 
         //when

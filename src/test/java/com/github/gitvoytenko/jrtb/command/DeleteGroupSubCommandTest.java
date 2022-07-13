@@ -66,11 +66,11 @@ public class DeleteGroupSubCommandTest {
         Mockito.when(telegramUserService.findByChatId(chatId))
                 .thenReturn(Optional.of(telegramUser));
 
-        String expectedMessage = "Чтобы удалить подписку на группу – передай команду вместе с ID группы. \n" +
+        String expectedMessage = "Чтобы удалить подписку на группу - передай команду вместе с ID группы. \n" +
                 "Например: /deletegroupsub 16 \n\n" +
                 "я подготовил список всех групп, на которые ты подписан \n\n" +
-                "имя группы – ID группы \n\n" +
-                "GS1 Title – 123 \n";
+                "имя группы - ID группы \n\n" +
+                "GS1 Title - 123 \n";
 
         //when
         command.execute(update);

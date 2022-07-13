@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 /**
  * Implementation of {@link SendBotMessageService} interface.
  */
@@ -22,6 +24,8 @@ public class SendBotMessageServiceIpml implements SendBotMessageService{
 
     @Override
     public void sendMessage(Long chatId, String message) {
+        if(isBlank(message)) return;
+
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId.toString());
         sendMessage.enableHtml(true);

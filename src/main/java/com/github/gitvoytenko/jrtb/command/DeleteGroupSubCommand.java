@@ -57,7 +57,7 @@ public class DeleteGroupSubCommand implements Command{
             }
         } else {
             sendBotMessageService.sendMessage(chatId, "Неправильный формат ID группы.\n" +
-                    "ID должно быть целы положительным числом");
+                    "ID должно быть целым положительным числом");
         }
 
     }
@@ -68,15 +68,16 @@ public class DeleteGroupSubCommand implements Command{
             if(CollectionUtils.isEmpty(groupSubs)){
                 message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addgroupsub";
             } else {
-                message = "Чтобы удалить подписку на группу – передай команду вместе с ID группы. \n" +
-                        "Например: /deletegroupsub 16 \n\n" +
-                        "я подготовил список всех групп, на которые ты подписан \n\n" +
-                        "имя группы – ID группы \n\n" +
-                        "%s";
-            }
             String userGroupSubData = groupSubs.stream()
                     .map(group -> format("%s - %s \n", group.getTitle(), group.getId()))
                     .collect(Collectors.joining());
-            sendBotMessageService.sendMessage(chatId, format(message, userGroupSubData));
+
+                message = String.format("Чтобы удалить подписку на группу - передай команду вместе с ID группы. \n" +
+                        "Например: /deletegroupsub 16 \n\n" +
+                        "я подготовил список всех групп, на которые ты подписан \n\n" +
+                        "имя группы - ID группы \n\n" +
+                        "%s", userGroupSubData);
+            }
+            sendBotMessageService.sendMessage(chatId, message);
         }
 }
