@@ -57,7 +57,7 @@ public class DeleteGroupSubCommandTest {
     public void shouldProperlyReturnSubscriptionLit(){
         //given
         Long chatId = 234567L;
-        Update update = prepareUpdate(chatId, String.format("%s %s", DELETE_GROUP_SUB.getCommandName(), "groupSubId"));
+        Update update = prepareUpdate(chatId, DELETE_GROUP_SUB.getCommandName());
         TelegramUser telegramUser = new TelegramUser();
         GroupSub gs1 = new GroupSub();
         gs1.setId(123);
